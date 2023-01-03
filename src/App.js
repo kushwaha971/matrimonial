@@ -1,9 +1,10 @@
+import Hero from "./components/pages/hero/Hero";
 
 
 function App() {
   return (
     <>
-      Akash Kushwaha
+      <Hero/>
     </>
   );
 }
