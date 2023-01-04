@@ -13,7 +13,7 @@ const HeroStyle = styled(Box)(({ theme }) => ({
   height: "731px",
   backgroundRepeat: "no-repeat",
   [theme.breakpoints.down("md")]:{
-    height: "650px",
+    height: "685px",
   },
 }));
 

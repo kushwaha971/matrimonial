@@ -14,11 +14,13 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     fontWeight: "500",
     fontSize: "40px",
     [theme.breakpoints.down("md")]: {
+     
       width: "70%",
       fontSize: "20px",
     },
   },
   ".Sub-title-style": {
+    
     width: "40%",
     color: "#dd2c00",
     margin: "auto",
@@ -28,6 +30,7 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     fontWeight: "500",
     fontSize: "30px",
     [theme.breakpoints.down("md")]: {
+      marginTop: '50px',
       width: "70%",
       fontSize: "18px",
     },
@@ -42,7 +45,7 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     backgroundColor: "#bf360c",
     borderRadius: "15px",
     [theme.breakpoints.down("md")]: {
-      marginTop: "50px",
+      marginTop: "90px",
       width: "100%",
       flexDirection: "column",
       padding: "10px 0px ",
@@ -78,6 +81,11 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
 
 function HomePage() {
   const contextData = React.useContext(userContext);
+  const handleButton = () => {
+    contextData.handleSignUp();
+    contextData.handleLogin();
+  };
+
 
   return (
     <React.Fragment>
@@ -95,7 +103,7 @@ function HomePage() {
           <Button
             variant="contained"
             className="btnStyle"
-            onClick={contextData.handleSignUp}
+            onClick={handleButton}
           >
             Get Started <ChevronRightIcon />
           </Button>
