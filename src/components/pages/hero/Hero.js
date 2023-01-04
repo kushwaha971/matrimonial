@@ -6,13 +6,12 @@ import image2 from "../../images/backgroundImage2.jpg";
 import Header from "./Header";
 import Context from "../../context/Context";
 import HomePage from "./HomePage";
-
+ 
 const HeroStyle = styled(Box)(({ theme }) => ({
   backgroundImage: `url(${image2})`,
   backgroundSize: "120% 100%",
   height: "731px",
   backgroundRepeat: "no-repeat",
- 
 }));
 
 function Hero() {
@@ -20,7 +19,7 @@ function Hero() {
     <HeroStyle>
       <Context>
         <Header />
-        <HomePage/>
+        <HomePage />
       </Context>
     </HeroStyle>
   );
