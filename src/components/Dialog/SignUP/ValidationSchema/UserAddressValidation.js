@@ -3,17 +3,13 @@ import React from "react";
 import * as yup from "yup";
 
 export const validationSchem = yup.object({
-  firstName: yup.string().required("Required!"),
-  lastName: yup.string().required("Required!"),
-  gender: yup.string().required("Required!"),
-  DOB: yup.string().required("Required!"),
   address: yup.string().required("Required!"),
   zipCode: yup.string().required("Required!"),
   city: yup.string().required("Required!"),
   state: yup.string().required("Required!"),
 });
 
-function SignUpFormValidation({ name }) {
+function UserAddressValidation({ name }) {
   return (
     <div
       style={{
@@ -29,4 +25,4 @@ function SignUpFormValidation({ name }) {
   );
 }
 
-export default SignUpFormValidation;
+export default UserAddressValidation;

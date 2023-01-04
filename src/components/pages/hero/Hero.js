@@ -1,23 +1,30 @@
 import React from "react";
 import { styled, Box } from "@mui/material";
-import image from "../../images/backgroundImage.png";
-
+// import image from "../../images/backgroundImage.png";
+// import image1 from "../../images/backgroundImage1.jpg";
+import image2 from "../../images/backgroundImage2.jpg";
 import Header from "./Header";
+import Context from "../../context/Context";
+import HomePage from "./HomePage";
 
 const HeroStyle = styled(Box)(({ theme }) => ({
-  backgroundImage: `url(${image})`,
-  backgroundSize: "auto 100%",
+  backgroundImage: `url(${image2})`,
+  backgroundSize: "120% 100%",
+  height: "731px",
   backgroundRepeat: "no-repeat",
   [theme.breakpoints.down("md")]: {
-    backgroundSize: "auto 50%",
+    height: "500px",
+   
   },
 }));
 
 function Hero() {
   return (
     <HeroStyle>
-      <Header />
-      <Box sx={{ margin: "52px", marginTop: "1000px" }}>Akash</Box>
+      <Context>
+        <Header />
+        <HomePage/>
+      </Context>
     </HeroStyle>
   );
 }
