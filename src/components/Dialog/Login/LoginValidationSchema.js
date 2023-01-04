@@ -4,9 +4,12 @@ import * as yup from "yup";
 
 export const validationSchem = yup.object({
   mobile: yup.string().required("Required!"),
+  otp: yup.string().required("Required!"),
+  
+
 });
 
-function UserPhoneValidation({ name }) {
+function LoginValidationSchema({ name }) {
   return (
     <div
       style={{
@@ -22,4 +25,4 @@ function UserPhoneValidation({ name }) {
   );
 }
 
-export default UserPhoneValidation;
+export default LoginValidationSchema;
