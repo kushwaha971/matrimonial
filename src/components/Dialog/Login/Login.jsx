@@ -1,29 +1,42 @@
-import {
-  Box,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  IconButton,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Dialog, DialogTitle, IconButton } from "@mui/material";
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { UserSignUpStyled } from "../SignUP/UserPersonalInfo";
 import { userContext } from "../../context/Context";
+import MobileTextField from "./MobileTextField";
 
 function Login() {
   const contextData = React.useContext(userContext);
+  const [lognInfo, setLoginInfo] = React.useState({
+    mobile: "",
+    otp: "",
+  });
+
+  const [currentStep, setCurrentStep] = React.useState(0);
+
+  const handleNextStep = (newData) => {
+    setLoginInfo((prev) => ({ ...prev, ...newData }));
+    setCurrentStep((prev) => prev + 1);
+  };
+
+  // const handePrevStep = (newData) => {
+  //   setLoginInfo((prev) => ({ ...prev, ...newData }));
+  //   setCurrentStep((prev) => prev - 1);
+  // };
 
   const handleButton = () => {
     contextData.handleSignUp();
-    contextData.handleClose();
+    contextData.handleCloseLogin();
   };
 
+  const Steps = [
+    <MobileTextField
+      handleButton={handleButton}
+      data={lognInfo}
+      handleNextStep={handleNextStep}
+    />,
+  ];
   return (
-    <UserSignUpStyled>
+    <React.Fragment>
       <Dialog
         open={contextData.openLoginPage}
         onClose={contextData.handleClose}
@@ -32,6 +45,7 @@ function Login() {
             "& .MuiPaper-root": {
               width: "100%",
               maxWidth: "400px",
+              background: "#d7ccc8",
             },
           },
         }}
@@ -49,53 +63,14 @@ function Login() {
               marginLeft: "-25px",
             }}
           >
-            {" "}
-            <Typography className="dialogTitleStyle">
-              Welcome back! Please Login
-            </Typography>
             <IconButton onClick={contextData.handleCloseLogin}>
               <CloseIcon />
             </IconButton>
           </DialogTitle>
-
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Enter Mobile Number"
-              type="email"
-              fullWidth
-              variant="outlined"
-            />
-            <Button variant="contained" sx={{ width: "100%" }}>
-              Get OTP
-            </Button>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email OTP"
-              type="email"
-              fullWidth
-              variant="outlined"
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button
-              variant="contained"
-              onClick={contextData.handleCloseLogin}
-              sx={{ width: "100%" }}
-            >
-              Login
-            </Button>
-          </DialogActions>
-          <Typography>
-            New to Shaadi? <Button onClick={handleButton}>Sign Up</Button>
-          </Typography>
+          {Steps[currentStep]}
         </Box>
       </Dialog>
-    </UserSignUpStyled>
+    </React.Fragment>
   );
 }
 

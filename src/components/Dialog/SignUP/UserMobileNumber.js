@@ -1,19 +1,27 @@
-import { Button, DialogContent, Typography } from "@mui/material";
+import { Box, Button, DialogContent, Typography } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { UserSignUpStyled } from "./UserPersonalInfo";
 import SendToMobileIcon from "@mui/icons-material/SendToMobile";
-import UserPhoneValidation,{validationSchem} from "./ValidationSchema/UserPhoneValidation";
+import UserPhoneValidation, {
+  validationSchem,
+} from "./ValidationSchema/UserPhoneValidation";
+import { userContext } from "../../context/Context";
 
 function UserMobileNumber(props) {
+
+  const contextData = React.useContext(userContext);
+  
   const handleSubmit = (values) => {
-    props.next(values);
+    props.next(values,true);
+    contextData.handleSignUp();
+    alert("You registered successfully!");
   };
   return (
     <UserSignUpStyled>
       <DialogContent>
         <Formik
-            validationSchema={validationSchem}
+          validationSchema={validationSchem}
           initialValues={props.data}
           onSubmit={handleSubmit}
         >
@@ -34,7 +42,7 @@ function UserMobileNumber(props) {
               />
               <UserPhoneValidation name="mobile" />
               <Button
-              disabled
+                disabled
                 variant="contained"
                 type="submit"
                 className="btnStyle"
@@ -44,6 +52,7 @@ function UserMobileNumber(props) {
               </Button>
               <br />
               <Field
+                disabled
                 name="mobile"
                 type="text"
                 label="Outlined"
@@ -53,14 +62,29 @@ function UserMobileNumber(props) {
                 className="textFieldStyle"
               />
 
-              <Button
-                variant="contained"
-                type="submit"
-                className="btnStyle"
-                sx={{ backgroundColor: "#f4511e", color: "#fafafa" }}
+              <Box
+                sx={{
+                  width: "90%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  PaddinRight: "25px",
+                }}
               >
-                Verify OTP & Continue
-              </Button>
+                <Button
+                  variant="contained"
+                  onClick={props.previous}
+                  className="backBtnStyle"
+                >
+                  Back
+                </Button>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  className="nextBtnStyle"
+                >
+                  Verify & Continue
+                </Button>
+              </Box>
             </Form>
           )}
         </Formik>

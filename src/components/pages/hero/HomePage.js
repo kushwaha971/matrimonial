@@ -77,11 +77,8 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
 }));
 
 function HomePage() {
-  const context = React.useContext(userContext);
-  const handleButton = () => {
-    context.handleSignUp();
-    context.handleLogin();
-  };
+  const contextData = React.useContext(userContext);
+
   return (
     <React.Fragment>
       <HomePageStyle>
@@ -98,7 +95,7 @@ function HomePage() {
           <Button
             variant="contained"
             className="btnStyle"
-            onClick={handleButton}
+            onClick={contextData.handleSignUp}
           >
             Get Started <ChevronRightIcon />
           </Button>

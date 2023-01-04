@@ -1,5 +1,5 @@
 import { Box, Dialog, DialogTitle, IconButton } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import UserAddressForm from "./UserAddressForm";
 import UserPersonalInfo from "./UserPersonalInfo";
@@ -7,10 +7,11 @@ import UserEducationInfo from "./UserEducationInfo";
 import UserProfilePicInfo from "./UserProfilePicInfo";
 import UserMobileNumber from "./UserMobileNumber";
 import { userContext } from "../../context/Context";
+// import ReviewDetails from "./ReviewDetails";
 
 function SignUp() {
   const contextData = React.useContext(userContext);
-  const [data, setData] = useState({
+  const [data, setData] = React.useState({
     firstName: "",
     lastName: "",
     gender: "",
@@ -25,10 +26,18 @@ function SignUp() {
     mobile: "",
   });
 
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = React.useState(0);
 
-  const handleNextStep = (newData) => {
+  const makeApIrequest = (formData) =>{
+    console.log("Form Data",formData);
+  }
+
+  const handleNextStep = (newData,final = false) => {
     setData((prev) => ({ ...prev, ...newData }));
+    if(final){
+      makeApIrequest(newData);
+      return;
+    }
     setCurrentStep((prev) => prev + 1);
   };
 
@@ -37,10 +46,10 @@ function SignUp() {
     setCurrentStep((prev) => prev - 1);
   };
 
-  console.log("Data", data);
+  // console.log("Data", data);
   const handleButton = () => {
     contextData.handleSignUp();
-    contextData.handleLogin();
+    contextData.handleCloseLogin();
   };
 
   const Steps = [
@@ -69,6 +78,10 @@ function SignUp() {
       previous={handePrevStep}
       data={data}
     />,
+    // <ReviewDetails
+    //   data={data}
+    //   submit = {handleNextStep}
+    // />
   ];
 
   return (

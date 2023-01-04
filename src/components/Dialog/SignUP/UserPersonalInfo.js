@@ -45,17 +45,20 @@ export const UserSignUpStyled = styled(Box)(({ theme }) => ({
   ".btnStyle": {
     width: "90%",
     marginTop: "10px",
-    marginBottom: "10px",
+    marginBottom: "15px",
     borderRadius: "80px",
-    color: "#ffab91",
+    border: "2px solid white",
+    color: "white",
+    backgroundColor: "#bf360c",
     fontSize: "17px",
     textTransform: "capitalize",
-    "&: hover": { backgroundColor: "#9e9e9e", color: "white" },
+    "&: hover": { backgroundColor: "#9e9e9e", color: "#ffab91" },
   },
   ".loginButtonStyle": {
     borderRadius: "80px",
     color: "#ffab91",
     fontSize: "17px",
+    marginBottom: "5px",
     textTransform: "capitalize",
     "&: hover": { backgroundColor: "#9e9e9e" },
   },
@@ -79,7 +82,7 @@ export const UserSignUpStyled = styled(Box)(({ theme }) => ({
     textTransform: "capitalize",
     fontSize: "17px",
     backgroundColor: "#689f38",
-    
+
     "&: hover": { backgroundColor: "#9e9e9e", color: "white" },
   },
 }));
@@ -167,11 +170,11 @@ function UserPersonalInfo(props) {
         </Formik>
         <Typography
           style={{
-            fontFamily: "Roboto Condensed",
+            fontFamily: "Roboto",
             fontWeight: "500",
             color: "#424242",
             fontSize: "15px",
-            margin: "5px",
+            // margin: "5px",
           }}
         >
           Already Memeber?
