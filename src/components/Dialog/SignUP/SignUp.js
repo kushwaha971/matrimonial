@@ -1,12 +1,16 @@
 import { Box, Dialog, DialogTitle, IconButton } from "@mui/material";
 import React, { useState } from "react";
-import UserPersonDetails from "./UserPersonDetails";
 import CloseIcon from "@mui/icons-material/Close";
 import UserAddressForm from "./UserAddressForm";
+import UserPersonalInfo from "./UserPersonalInfo";
+import UserEducationInfo from "./UserEducationInfo";
+import UserProfilePicInfo from "./UserProfilePicInfo";
+import UserMobileNumber from "./UserMobileNumber";
+import { userContext } from "../../context/Context";
 
-function SignUp(Props) {
+function SignUp() {
+  const contextData = React.useContext(userContext);
   const [data, setData] = useState({
-    step: 0,
     firstName: "",
     lastName: "",
     gender: "",
@@ -15,14 +19,13 @@ function SignUp(Props) {
     zipCode: "",
     city: "",
     state: "",
-    collegeName: "",
-    qualification: "",
-    profilePicture: "",
+    college: "",
+    idCard: null,
+    profilePicture: null,
     mobile: "",
   });
 
   const [currentStep, setCurrentStep] = useState(0);
- 
 
   const handleNextStep = (newData) => {
     setData((prev) => ({ ...prev, ...newData }));
@@ -36,12 +39,12 @@ function SignUp(Props) {
 
   console.log("Data", data);
   const handleButton = () => {
-    Props.handleSignUp();
-    Props.handleLogin();
+    contextData.handleSignUp();
+    contextData.handleLogin();
   };
 
   const Steps = [
-    <UserPersonDetails
+    <UserPersonalInfo
       next={handleNextStep}
       data={data}
       handleButton={handleButton}
@@ -51,17 +54,32 @@ function SignUp(Props) {
       previous={handePrevStep}
       data={data}
     />,
+    <UserEducationInfo
+      next={handleNextStep}
+      previous={handePrevStep}
+      data={data}
+    />,
+    <UserProfilePicInfo
+      next={handleNextStep}
+      previous={handePrevStep}
+      data={data}
+    />,
+    <UserMobileNumber
+      next={handleNextStep}
+      previous={handePrevStep}
+      data={data}
+    />,
   ];
 
   return (
     <Dialog
-      open={Props.openSignUp}
-      onClose={Props.handleOpenSignUpPage}
+      open={contextData.openSignUp}
+      onClose={contextData.handleOpenSignUpPage}
       sx={{
         "& .MuiDialog-container": {
           "& .MuiPaper-root": {
             width: "100%",
-            maxWidth: "400px", 
+            maxWidth: "400px",
           },
         },
       }}
@@ -79,7 +97,7 @@ function SignUp(Props) {
             marginLeft: "-25px",
           }}
         >
-          <IconButton onClick={Props.handleSignUp}>
+          <IconButton onClick={contextData.handleSignUp}>
             <CloseIcon />
           </IconButton>
         </DialogTitle>

@@ -1,13 +1,16 @@
-import { Box, Button, DialogContent } from "@mui/material";
+import { Box, Button, DialogContent, Typography } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
-import SignUpFormValidation, { validationSchem } from "./SignUpFormValidation";
-import { UserSignUpStyled } from "./UserPersonDetails";
+import UserAddressValidation, {
+  validationSchem,
+} from "./ValidationSchema/UserAddressValidation";
+import { UserSignUpStyled } from "./UserPersonalInfo";
 
 function UserAddressForm(props) {
   const handleSubmit = (values) => {
     props.next(values);
   };
+
   return (
     <UserSignUpStyled>
       <DialogContent sx={{ marginTop: "-40px" }}>
@@ -18,7 +21,9 @@ function UserAddressForm(props) {
         >
           {() => (
             <Form>
-              <label className="labelStyle">Address: </label>
+              <Typography className="labelStyle">
+                <span style={{ color: "red" }}>*</span>Address:
+              </Typography>
               <br />
               <Field
                 name="address"
@@ -29,7 +34,7 @@ function UserAddressForm(props) {
                 fullWidth
                 className="textFieldStyle"
               />
-              <SignUpFormValidation name="address" />
+              <UserAddressValidation name="address" />
               <Box
                 sx={{
                   width: "95%",
@@ -38,7 +43,9 @@ function UserAddressForm(props) {
                 }}
               >
                 <div>
-                  <label className="labelStyle">City: </label>
+                  <Typography className="labelStyle">
+                    <span style={{ color: "red" }}>*</span>City:
+                  </Typography>
                   <br />
 
                   <Field
@@ -49,10 +56,12 @@ function UserAddressForm(props) {
                     placeholder="City"
                     className="textFieldStyle"
                   />
-                  <SignUpFormValidation name="city" />
+                  <UserAddressValidation name="city" />
                 </div>
                 <div>
-                  <label className="labelStyle">Zip Code:</label>
+                  <Typography className="labelStyle">
+                    <span style={{ color: "red" }}>*</span>Zip Code:
+                  </Typography>
                   <br />
                   <Field
                     name="zipCode"
@@ -62,11 +71,13 @@ function UserAddressForm(props) {
                     placeholder="Zip Code"
                     className="textFieldStyle"
                   />
-                  <SignUpFormValidation name="zipCode" />
+                  <UserAddressValidation name="zipCode" />
                 </div>
               </Box>
 
-              <label className="labelStyle">State: </label>
+              <Typography className="labelStyle">
+                <span style={{ color: "red" }}>*</span>State:
+              </Typography>
               <br />
               <Field
                 name="state"
@@ -77,7 +88,7 @@ function UserAddressForm(props) {
                 fullWidth
                 className="textFieldStyle"
               />
-              <SignUpFormValidation name="state" />
+              <UserAddressValidation name="state" />
               <Box
                 sx={{
                   width: "90%",
