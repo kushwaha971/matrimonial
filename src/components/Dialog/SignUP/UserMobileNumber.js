@@ -82,8 +82,9 @@ function UserMobileNumber(props) {
                   variant="contained"
                   type="submit"
                   className="nextBtnStyle"
+                  
                 >
-                  Verify & Continue
+                  Verify & Submit
                 </Button>
               </Box>
             </Form>

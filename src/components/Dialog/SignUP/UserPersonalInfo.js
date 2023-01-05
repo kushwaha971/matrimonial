@@ -80,7 +80,7 @@ export const UserSignUpStyled = styled(Box)(({ theme }) => ({
     color: "#ffffff",
     fontFamily: "Roboto Condensed",
     textTransform: "capitalize",
-    fontSize: "17px",
+    fontSize: "11px",
     backgroundColor: "#689f38",
 
     "&: hover": { backgroundColor: "#9e9e9e", color: "white" },
