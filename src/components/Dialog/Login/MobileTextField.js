@@ -22,10 +22,11 @@ const MobileTextFieldStyle = styled(Box)(({ theme }) => ({
     marginRight: "auto",
   },
   ".titleStyle": {
+    width: '90%',
     margin: "auto",
     fontFamily: "Roboto",
     fontWeight: "500",
-    fontSize: "22px",
+    fontSize: "20px",
     marginTop: "10px",
     color: "#424242",
     textAlign: "center",

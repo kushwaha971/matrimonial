@@ -46,7 +46,7 @@ function SignUp() {
     setCurrentStep((prev) => prev - 1);
   };
 
-  // console.log("Data", data);
+  console.log("Data", data);
   const handleButton = () => {
     contextData.handleSignUp();
     contextData.handleCloseLogin();

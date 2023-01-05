@@ -13,6 +13,7 @@ function UserMobileNumber(props) {
   const contextData = React.useContext(userContext);
   
   const handleSubmit = (values) => {
+    console.log("Red", props.data);
     props.next(values,true);
     contextData.handleSignUp();
     alert("You registered successfully!");

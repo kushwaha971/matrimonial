@@ -4,7 +4,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { userContext } from "../../context/Context";
 
 const HomePageStyle = styled(Box)(({ theme }) => ({
-  ".title-style": {
+  ".titleStyle": {
     width: "40%",
     color: "white",
     margin: "auto",
@@ -14,13 +14,11 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     fontWeight: "500",
     fontSize: "40px",
     [theme.breakpoints.down("md")]: {
-     
       width: "70%",
       fontSize: "20px",
     },
   },
-  ".Sub-title-style": {
-    
+  ".SubTitleStyle": {
     width: "40%",
     color: "#dd2c00",
     margin: "auto",
@@ -30,12 +28,11 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     fontWeight: "500",
     fontSize: "30px",
     [theme.breakpoints.down("md")]: {
-      marginTop: '50px',
       width: "70%",
       fontSize: "18px",
     },
   },
-  ".box-container-style": {
+  ".boxContainerStyle": {
     width: "50%",
     margin: "auto",
     display: "flex",
@@ -45,14 +42,14 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     backgroundColor: "#bf360c",
     borderRadius: "15px",
     [theme.breakpoints.down("md")]: {
-      marginTop: "90px",
+      marginTop: "50px",
       width: "100%",
       flexDirection: "column",
       padding: "10px 0px ",
       borderRadius: "10px",
     },
   },
-  ".box-container-text-style": {
+  ".boxContainerTextStyle": {
     width: "60%",
     color: "white",
     textAlign: "center",
@@ -86,18 +83,17 @@ function HomePage() {
     contextData.handleLogin();
   };
 
-
   return (
     <React.Fragment>
       <HomePageStyle>
-        <Typography className="title-style">
+        <Typography className="titleStyle">
           We bring people together. Love unites them...
         </Typography>
-        <Typography className="Sub-title-style">
+        <Typography className="SubTitleStyle">
           Find your Special Someone!
         </Typography>
-        <Box className="box-container-style">
-          <Typography className="box-container-text-style">
+        <Box className="boxContainerStyle">
+          <Typography className="boxContainerTextStyle">
             Your story is waiting to happen!
           </Typography>
           <Button
