@@ -3,7 +3,11 @@ import React from "react";
 import * as yup from "yup";
 
 export const validationSchem = yup.object({
-  mobile: yup.string().required("Required!"),
+  mobile: yup
+    .string()
+    .required("Phone number is Required!")
+    .min(10, "Please enter valid mobile number")
+    .max(10, "Please enter valid mobile number"),
 });
 
 function UserPhoneValidation({ name }) {

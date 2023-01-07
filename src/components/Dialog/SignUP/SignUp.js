@@ -7,7 +7,7 @@ import UserEducationInfo from "./UserEducationInfo";
 import UserProfilePicInfo from "./UserProfilePicInfo";
 import UserMobileNumber from "./UserMobileNumber";
 import { userContext } from "../../context/Context";
-// import ReviewDetails from "./ReviewDetails";
+import result from "./result";
 
 function SignUp() {
   const contextData = React.useContext(userContext);
@@ -28,14 +28,35 @@ function SignUp() {
 
   const [currentStep, setCurrentStep] = React.useState(0);
 
-  const makeApIrequest = (formData) =>{
-    console.log("Form Data",formData);
-  }
+  const makeApiRequest = (formData) => {
+    const Data = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      gender: formData.gender,
+      DOB: formData.DOB,
+      zipCode: formData.zipCode,
+      city: formData.city,
+      state: formData.state,
+      college: formData.college,
+      idCard: null,
+      profilePicture: null,
+      mobile: formData.mobile,
+    };
 
-  const handleNextStep = (newData,final = false) => {
+    result
+      .post("/UserData.json", Data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleNextStep = (newData, final = false) => {
     setData((prev) => ({ ...prev, ...newData }));
-    if(final){
-      makeApIrequest(newData);
+    if (final) {
+      makeApiRequest(newData);
       return;
     }
     setCurrentStep((prev) => prev + 1);
@@ -45,8 +66,6 @@ function SignUp() {
     setData((prev) => ({ ...prev, ...newData }));
     setCurrentStep((prev) => prev - 1);
   };
-
-  console.log("Data", data);
   const handleButton = () => {
     contextData.handleSignUp();
     contextData.handleCloseLogin();
@@ -78,10 +97,6 @@ function SignUp() {
       previous={handePrevStep}
       data={data}
     />,
-    // <ReviewDetails
-    //   data={data}
-    //   submit = {handleNextStep}
-    // />
   ];
 
   return (
