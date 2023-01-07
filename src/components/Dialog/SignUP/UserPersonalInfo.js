@@ -50,7 +50,7 @@ export const UserSignUpStyled = styled(Box)(({ theme }) => ({
     border: "2px solid white",
     color: "white",
     backgroundColor: "#bf360c",
-    fontSize: "17px",
+    fontSize: "15px",
     textTransform: "capitalize",
     "&: hover": { backgroundColor: "#9e9e9e", color: "#ffab91" },
   },
@@ -68,7 +68,7 @@ export const UserSignUpStyled = styled(Box)(({ theme }) => ({
     borderRadius: "20px",
     color: "#ffffff",
     fontFamily: "Roboto Condensed",
-    fontSize: "17px",
+    fontSize: "11px",
     backgroundColor: "#3d5afe",
     textTransform: "capitalize",
     "&: hover": { backgroundColor: "#9e9e9e", color: "white" },
@@ -85,13 +85,11 @@ export const UserSignUpStyled = styled(Box)(({ theme }) => ({
 
     "&: hover": { backgroundColor: "#9e9e9e", color: "white" },
   },
-  ".captchaStyle":{
-    [theme.breakpoints.down("md")]:{
-      marginLeft:'-25px'
+  ".captchaStyle": {
+    [theme.breakpoints.down("md")]: {
+      marginLeft: "-25px",
     },
-    
-
-  }
+  },
 }));
 
 function UserPersonalInfo(props) {

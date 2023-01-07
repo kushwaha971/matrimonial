@@ -60,6 +60,7 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
       width: "100%",
       padding: "10px 0px",
       fontSize: "20px",
+      
     },
   },
   ".btnStyle": {
@@ -72,6 +73,8 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     "&:hover": {
       backgroundColor: "white",
       color: "#9e9e9e",
+    },[theme.breakpoints.down("md")]: {
+        marginBottom: '10px',
     },
   },
 }));
@@ -80,7 +83,6 @@ function HomePage() {
   const contextData = React.useContext(userContext);
   const handleButton = () => {
     contextData.handleSignUp();
-    // contextData.handleCloseLogin();
   };
 
   return (

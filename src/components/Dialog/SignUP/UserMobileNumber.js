@@ -188,7 +188,7 @@ function UserMobileNumber(props) {
                 className="btnStyle"
                 sx={{ backgroundColor: "#f4511e", color: "#fafafa" }}
               >
-                Verify OTP & Submit <SendToMobileIcon />
+                Verify OTP & Submit
               </Button>
             )}
           </form>

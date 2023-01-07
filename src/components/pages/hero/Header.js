@@ -22,10 +22,12 @@ const HeaderStyle = styled(Box)(({ theme }) => ({
     fontWeight: "400",
     fontSize: "18px",
     marginRight: "55px",
+    textDecoration: "none",
     "&:hover": {
       textDecoration: "underline",
       color: "#ffab91",
     },
+
     [theme.breakpoints.down("md")]: {
       marginRight: "0px",
     },
@@ -66,13 +68,11 @@ function Header() {
               />
             </IconButton>
             <Tabs
-              value="1"
               style={{
                 marginLeft: "auto",
               }}
             >
               <Tab
-                value="1"
                 label={
                   <div>
                     Login{" "}
