@@ -80,7 +80,7 @@ function HomePage() {
   const contextData = React.useContext(userContext);
   const handleButton = () => {
     contextData.handleSignUp();
-    contextData.handleLogin();
+    // contextData.handleCloseLogin();
   };
 
   return (

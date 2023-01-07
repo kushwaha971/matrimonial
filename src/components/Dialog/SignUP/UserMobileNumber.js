@@ -70,6 +70,7 @@ function UserMobileNumber(props) {
       setFlag(true);
       val = values;
     } catch (err) {
+      console.log("Error after captcha",err);
       setError("Something went wrong, Try again later");
     }
   };

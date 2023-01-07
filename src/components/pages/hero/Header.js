@@ -15,7 +15,7 @@ import logo from "../../images/BirdLogo.png";
 import { userContext } from "../../context/Context";
 
 const HeaderStyle = styled(Box)(({ theme }) => ({
-  ".tab-Style": {
+  ".tabStyle": {
     color: "#FFFFFF",
     fontFamily: "Roboto",
     textTransform: "capitalize",
@@ -30,7 +30,7 @@ const HeaderStyle = styled(Box)(({ theme }) => ({
       marginRight: "0px",
     },
   },
-  ".icon-button-style": {
+  ".iconButtonStyle": {
     marginLeft: "30px",
     [theme.breakpoints.down("md")]: {
       marginLeft: "0px",
@@ -57,7 +57,7 @@ function Header() {
               edge="start"
               color="inherit"
               aria-label="menu"
-              className="icon-button-style"
+              className="iconButtonStyle"
             >
               <img
                 src={logo}
@@ -65,8 +65,14 @@ function Header() {
                 style={{ height: "50px", width: "100px" }}
               />
             </IconButton>
-            <Tabs sx={{ marginLeft: "auto" }}>
+            <Tabs
+              value="1"
+              style={{
+                marginLeft: "auto",
+              }}
+            >
               <Tab
+                value="1"
                 label={
                   <div>
                     Login{" "}
@@ -76,7 +82,7 @@ function Header() {
                   </div>
                 }
                 index="0"
-                className="tab-Style"
+                className="tabStyle"
                 onClick={contextData.setOpenLoginPage}
               />
             </Tabs>
