@@ -125,8 +125,10 @@ function UserMobileNumber(props) {
                   className="textFieldStyle"
                 />
                 <UserPhoneValidation name="mobile" />
-                {error && <Alert sx={{ color: "red" }}>{error}</Alert>}
-                <div id="recaptcha-container" />
+                <Box sx={{ width: "90%"  }}>
+                  {error && <Alert sx={{ color: "red",margin: '5px',marginLeft: '-2px' }}>{error}</Alert>}
+                  <div id="recaptcha-container"  className="captchaStyle" />
+                </Box>
                 <Button
                   variant="contained"
                   type="submit"

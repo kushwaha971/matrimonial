@@ -107,7 +107,7 @@ function SignUp() {
         "& .MuiDialog-container": {
           "& .MuiPaper-root": {
             width: "100%",
-            maxWidth: "400px",
+            maxWidth: "420px",
           },
         },
       }}

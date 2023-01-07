@@ -85,6 +85,13 @@ export const UserSignUpStyled = styled(Box)(({ theme }) => ({
 
     "&: hover": { backgroundColor: "#9e9e9e", color: "white" },
   },
+  ".captchaStyle":{
+    [theme.breakpoints.down("md")]:{
+      marginLeft:'-25px'
+    },
+    
+
+  }
 }));
 
 function UserPersonalInfo(props) {
