@@ -2,14 +2,22 @@ import { Box, Button, styled, Typography } from "@mui/material";
 import React from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { userContext } from "../../context/Context";
+import image2 from "../../images/backgroundImage2.jpg";
 
 const HomePageStyle = styled(Box)(({ theme }) => ({
+  backgroundImage: `url(${image2})`,
+  backgroundSize: "120% 100%",
+  height: "731px",
+  backgroundRepeat: "no-repeat",
+  [theme.breakpoints.down("md")]: {
+    height: "600px",
+  },
   ".titleStyle": {
     width: "40%",
     color: "white",
     margin: "auto",
     textAlign: "center",
-    marginTop: "100px",
+    paddingTop: "100px",
     fontFamily: "Roboto",
     fontWeight: "500",
     fontSize: "40px",
@@ -60,7 +68,6 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
       width: "100%",
       padding: "10px 0px",
       fontSize: "20px",
-      
     },
   },
   ".btnStyle": {
@@ -73,8 +80,9 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     "&:hover": {
       backgroundColor: "white",
       color: "#9e9e9e",
-    },[theme.breakpoints.down("md")]: {
-        marginBottom: '10px',
+    },
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "10px",
     },
   },
 }));

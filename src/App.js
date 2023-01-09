@@ -1,11 +1,11 @@
 import React from "react";
-import Hero from "./components/pages/hero/Hero";
+import LandingPage from "./components/pages/hero/LandingPage";
 
 
 function App() {
   return (
     <React.Fragment>
-      <Hero/>
+      <LandingPage/>
     </React.Fragment>
   );
 }
