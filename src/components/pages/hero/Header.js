@@ -16,6 +16,7 @@ import SignUp from "../../Dialog/SignUP/SignUp";
 import logo from "../../images/BirdLogo.png";
 import { userContext } from "../../context/Context";
 import DrawerComp from "./DrawerComp";
+import { Link } from "react-scroll";
 
 export const HeaderStyle = styled(Box)(({ theme }) => ({
   ".logintabStyle": {
@@ -37,7 +38,7 @@ export const HeaderStyle = styled(Box)(({ theme }) => ({
     fontFamily: "Roboto",
     textTransform: "capitalize",
     fontWeight: "400",
-    fontSize: "17px",
+    fontSize: "20px",
     marginRight: "55px",
     textDecoration: "none",
 
@@ -97,16 +98,21 @@ function Header() {
                     marginLeft: "auto",
                   }}
                 >
+                <Link spy={true} smooth={true}>
                   <Tab
                     value="home"
                     label={<div style={{ color: "white" }}>Home</div>}
                     className="tabStyle"
                   />
+                  </Link>
+                  <Link spy={true} smooth={true}>
                   <Tab
                     value="about"
                     label={<div style={{ color: "white" }}>About us</div>}
                     className="tabStyle"
                   />
+                  </Link>
+                  <Link spy={true} smooth={true}>
                   <Tab
                     value="success stores"
                     label={
@@ -114,11 +120,14 @@ function Header() {
                     }
                     className="tabStyle"
                   />
+                  </Link>
+                  <Link spy={true} smooth={true}>
                   <Tab
                     value="contact"
                     label={<div style={{ color: "white" }}>Contact us</div>}
                     className="tabStyle"
                   />
+                  </Link>
                   <Tab
                     value="login"
                     label={
