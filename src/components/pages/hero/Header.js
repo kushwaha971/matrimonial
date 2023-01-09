@@ -15,9 +15,9 @@ import Login from "../../Dialog/Login/Login";
 import SignUp from "../../Dialog/SignUP/SignUp";
 import logo from "../../images/BirdLogo.png";
 import { userContext } from "../../context/Context";
-import Drawer from "./Drawer";
+import DrawerComp from "./DrawerComp";
 
-const HeaderStyle = styled(Box)(({ theme }) => ({
+export const HeaderStyle = styled(Box)(({ theme }) => ({
   ".logintabStyle": {
     color: "#FFFFFF",
     fontFamily: "Roboto",
@@ -62,7 +62,9 @@ function Header() {
   const contextData = React.useContext(userContext);
   const [value, setValue] = React.useState("home");
   const theme = useTheme();
+  // console.log(theme)
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  console.log(isMatch);
 
   return (
     <HeaderStyle>
@@ -75,13 +77,7 @@ function Header() {
           sx={{ backgroundColor: "#bf360c", opacity: 1 }}
         >
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              className="iconButtonStyle"
-            >
+            <IconButton size="large" edge="start">
               <img
                 src={logo}
                 alt="BTU Shaadi.com"
@@ -90,7 +86,7 @@ function Header() {
             </IconButton>
             {isMatch ? (
               <>
-                <Drawer />
+                <DrawerComp />
               </>
             ) : (
               <>
