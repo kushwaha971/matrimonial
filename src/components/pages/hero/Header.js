@@ -62,9 +62,8 @@ function Header() {
   const contextData = React.useContext(userContext);
   const [value, setValue] = React.useState("home");
   const theme = useTheme();
-  // console.log(theme)
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(isMatch);
+  
 
   return (
     <HeaderStyle>
@@ -86,7 +85,7 @@ function Header() {
             </IconButton>
             {isMatch ? (
               <>
-                <DrawerComp />
+                <DrawerComp handleLogin={contextData.handleCloseLogin} />
               </>
             ) : (
               <>
@@ -134,7 +133,7 @@ function Header() {
                       </div>
                     }
                     className="logintabStyle"
-                    onClick={contextData.setOpenLoginPage}
+                    onClick={contextData.handleCloseLogin}
                   />
                 </Tabs>
               </>
