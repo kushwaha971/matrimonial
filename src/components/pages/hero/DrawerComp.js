@@ -16,11 +16,12 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 // const pages = ["Home", "About us", "Success Stories", "Contact us", "Login"];
 const IconStyle = {
   verticalAlign: "middle",
   margin: "0px 8px",
-  marginTop: '4px'
+  marginTop: "4px",
 };
 const pages = [
   {
@@ -43,9 +44,14 @@ const pages = [
     pageName: "Contact us",
     pageIcons: <ContactPageOutlinedIcon style={IconStyle} />,
   },
+  {
+    id: 5,
+    pageName: "Login",
+    pageIcons: <LoginOutlinedIcon style={IconStyle} />,
+  },
 ];
 
-const DrawerComp = () => {
+const DrawerComp = (props) => {
   const [opendDrawer, setOpenDrawer] = React.useState(false);
 
   return (
@@ -96,6 +102,9 @@ const DrawerComp = () => {
               key={index}
               onClick={() => {
                 setOpenDrawer(!opendDrawer);
+                if (page.id === 5) {
+                  props.handleLogin();
+                }
               }}
             >
               <ListItemIcon
