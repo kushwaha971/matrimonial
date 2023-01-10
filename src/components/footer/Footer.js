@@ -7,10 +7,11 @@ const FooterStyle = styled(Box)(({ theme }) => ({
   ".copyrightStyle": {
     color: "white",
     fontFamily: "Poppins",
-    fontWeight: "500",
-    fontSize: "18px",
+    fontWeight: "400",
+    fontSize: "15px",
     textAlign: "center",
-    padding: "40px",
+    padding: "20px",
+    paddingTop: '40px',
   },
 }));
 
@@ -19,7 +20,7 @@ function Footer() {
     <FooterStyle>
       <Typography className="copyrightStyle">
         <CopyrightIcon sx={{ verticalAlign: "middle" }} /> Copyrights
-        VTUShaadi.com 2023
+        VTUShaadi.com <br/>2023
       </Typography>
       {/* <Typography>VTUShaadi.com has no affiliation with Shaadi.com or any other materimonial site </Typography> */}
     </FooterStyle>
