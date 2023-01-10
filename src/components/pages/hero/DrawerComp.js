@@ -3,6 +3,7 @@ import {
   Drawer,
   IconButton,
   List,
+  ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
@@ -17,6 +18,7 @@ import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import { Link } from "react-scroll";
 // const pages = ["Home", "About us", "Success Stories", "Contact us", "Login"];
 const IconStyle = {
   verticalAlign: "middle",
@@ -28,26 +30,31 @@ const pages = [
     id: 1,
     pageName: "Home",
     pageIcons: <HomeOutlinedIcon style={IconStyle} />,
+    linkId: "home",
   },
   {
     id: 2,
     pageName: "About us",
     pageIcons: <InfoOutlinedIcon style={IconStyle} />,
+    linkId: "about",
   },
   {
     id: 3,
     pageName: "Success Stories",
     pageIcons: <AutoStoriesOutlinedIcon style={IconStyle} />,
+    linkId: "stories",
   },
   {
     id: 4,
     pageName: "Contact us",
     pageIcons: <ContactPageOutlinedIcon style={IconStyle} />,
+    linkId: "",
   },
   {
     id: 5,
     pageName: "Login",
     pageIcons: <LoginOutlinedIcon style={IconStyle} />,
+    linkId: "",
   },
 ];
 
@@ -62,7 +69,6 @@ const DrawerComp = (props) => {
         onClose={() => setOpenDrawer(false)}
         transitionDuration={500}
         PaperProps={{
-          borderRadius: "20px 20px 0 0",
           sx: { width: "100%" },
         }}
       >
@@ -93,45 +99,50 @@ const DrawerComp = (props) => {
         <Divider />
         <List>
           {pages.map((page, index) => (
-            <ListItemButton
-              sx={{
-                "&: hover": {
-                  backgroundColor: "white",
-                },
-              }}
-              key={index}
-              onClick={() => {
-                setOpenDrawer(!opendDrawer);
-                if (page.id === 5) {
-                  props.handleLogin();
-                }
-              }}
-            >
-              <ListItemIcon
+            <ListItem key={index}>
+            <Link to={page.linkId} spy={true} smooth={true}>
+              <ListItemButton
+              key={page.id}
                 sx={{
-                  color: "#dd2c00",
-                  margin: "10px 0px",
-                  padding: "5px 20px ",
-                  paddingRight: "30px",
-                  backgroundColor: "#f5f5f5",
-                  borderRadius: "5px",
+                  "&: hover": {
+                    backgroundColor: "white",
+                  },
+                }}
+                
+                onClick={() => {
+                  setOpenDrawer(!opendDrawer);
+                  if (page.id === 5) {
+                    props.handleLogin();
+                  }
                 }}
               >
-                {" "}
-                {page.pageIcons}
-                <ListItemText
+                <ListItemIcon
                   sx={{
-                    color: "#424242",
-                    fontFamily: "Poppins",
-                    textTransform: "capitalize",
-                    fontWeight: "600",
-                    fontSize: "30px",
+                    color: "#dd2c00",
+                    margin: "10px 0px",
+                    padding: "5px 20px ",
+                    paddingRight: "30px",
+                    backgroundColor: "#f5f5f5",
+                    borderRadius: "5px",
                   }}
                 >
-                  {page.pageName}
-                </ListItemText>
-              </ListItemIcon>
-            </ListItemButton>
+                  {" "}
+                  {page.pageIcons}
+                  <ListItemText
+                    sx={{
+                      color: "#424242",
+                      fontFamily: "Poppins",
+                      textTransform: "capitalize",
+                      fontWeight: "600",
+                      fontSize: "30px",
+                    }}
+                  >
+                    {page.pageName}
+                  </ListItemText>
+                </ListItemIcon>
+              </ListItemButton>
+            </Link>
+            </ListItem>
           ))}
         </List>
       </Drawer>

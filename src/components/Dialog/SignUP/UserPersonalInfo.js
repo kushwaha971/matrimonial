@@ -121,7 +121,7 @@ function UserPersonalInfo(props) {
                 label="Outlined"
                 variant="outlined"
                 placeholder="Enter your First Name"
-                fullWidth
+                // fullWidth
                 className="textFieldStyle"
               />
               <UserPersonalInfoValidation name="firstName" />
@@ -135,7 +135,7 @@ function UserPersonalInfo(props) {
                 label="Outlined"
                 variant="outlined"
                 placeholder="Enter your Last Name"
-                fullWidth
+                // fullWidth
                 className="textFieldStyle"
               />
               <UserPersonalInfoValidation name="lastName" />

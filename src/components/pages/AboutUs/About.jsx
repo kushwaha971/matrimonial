@@ -91,7 +91,7 @@ function About() {
               background: "red",
               padding: "15px",
               borderRadius: "5px",
-              fontFamily: "Poppins",
+              fontFamily: "Lobster, cursive",
               fontSize: "20px",
               fontWeight: 600,
               color: "#f5f5f5",
