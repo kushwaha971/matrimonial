@@ -62,9 +62,11 @@ export const HeaderStyle = styled(Box)(({ theme }) => ({
 function Header() {
   const contextData = React.useContext(userContext);
   const [value, setValue] = React.useState("home");
+  // const tabIndxHandle =(e,newValue) => {
+  //     setValue(newValue);
+  // }
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  
 
   return (
     <HeaderStyle>
@@ -73,7 +75,7 @@ function Header() {
 
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          position="static"
+          position="fixed"
           sx={{ backgroundColor: "#bf360c", opacity: 1 }}
         >
           <Toolbar>
@@ -98,36 +100,46 @@ function Header() {
                     marginLeft: "auto",
                   }}
                 >
-                <Link spy={true} smooth={true}>
                   <Tab
                     value="home"
-                    label={<div style={{ color: "white" }}>Home</div>}
-                    className="tabStyle"
-                  />
-                  </Link>
-                  <Link spy={true} smooth={true}>
-                  <Tab
-                    value="about"
-                    label={<div style={{ color: "white" }}>About us</div>}
-                    className="tabStyle"
-                  />
-                  </Link>
-                  <Link spy={true} smooth={true}>
-                  <Tab
-                    value="success stores"
                     label={
-                      <div style={{ color: "white" }}>Success Stories</div>
+                      <Link to="home" spy={true} smooth={true}>
+                        <div style={{ color: "white" }}>Home</div>{" "}
+                      </Link>
                     }
                     className="tabStyle"
                   />
-                  </Link>
-                  <Link spy={true} smooth={true}>
+
                   <Tab
-                    value="contact"
-                    label={<div style={{ color: "white" }}>Contact us</div>}
+                    value="about"
+                    label={
+                      <Link to="about" spy={true} smooth={true}>
+                        <div style={{ color: "white" }}>About us</div>
+                      </Link>
+                    }
                     className="tabStyle"
                   />
-                  </Link>
+
+                  <Tab
+                    value="success stories"
+                    label={
+                      <Link to="stories" spy={true} smooth={true}>
+                        <div style={{ color: "white" }}>Success Stories</div>
+                      </Link>
+                    }
+                    className="tabStyle"
+                  />
+
+                  <Tab
+                    value="contact"
+                    label={
+                      <Link spy={true} smooth={true}>
+                        <div style={{ color: "white" }}>Contact us</div>{" "}
+                      </Link>
+                    }
+                    className="tabStyle"
+                  />
+
                   <Tab
                     value="login"
                     label={

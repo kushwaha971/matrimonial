@@ -18,7 +18,7 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     margin: "auto",
     textAlign: "center",
     paddingTop: "100px",
-    fontFamily: "Roboto",
+    fontFamily: "Lobster, cursive",
     fontWeight: "500",
     fontSize: "40px",
     [theme.breakpoints.down("md")]: {
@@ -61,7 +61,7 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
     width: "60%",
     color: "white",
     textAlign: "center",
-    fontFamily: "Roboto",
+    fontFamily: "Lobster, cursive",
     fontWeight: "400",
     fontSize: "25px",
     [theme.breakpoints.down("md")]: {
