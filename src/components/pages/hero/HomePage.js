@@ -10,7 +10,7 @@ const HomePageStyle = styled(Box)(({ theme }) => ({
   height: "731px",
   backgroundRepeat: "no-repeat",
   [theme.breakpoints.down("md")]: {
-    height: "600px",
+    height: "650px",
   },
   ".titleStyle": {
     width: "40%",

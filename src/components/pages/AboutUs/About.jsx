@@ -8,15 +8,15 @@ import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 const AboutStyle = styled(Box)(({ theme }) => ({
   backgroundImage: `linear-gradient(to right,#1E1E1E,#4b4b4b )`,
   ".imgStyle": {
-    width: "300px",
-    height: "200px",
+    width: "250px",
+    height: "150px",
     display: "flex",
     marginLeft: "auto",
     marginRight: "auto",
     paddingTop: "50px",
     [theme.breakpoints.down("md")]: {
       width: "150px",
-      height: "150px",
+      height: "120px",
     },
   },
   ".textContainer": {
