@@ -117,18 +117,6 @@ function MobileTextField(props) {
               <Button variant="contained" type="submit" className="btnStyle">
                 Send OTP
               </Button>
-              {/* <TextField
-                name="otp"
-                type="text"
-                variant="outlined"
-                placeholder="Enter OTP"
-                fullWidth
-                className="textFieldStyle"
-              />
-              <LoginValidationSchema name="otp"/>
-              <Button variant="contained" type="submit" className="btnStyle">
-                Verify OTP
-              </Button> */}
             </Form>
           )}
         </Formik>

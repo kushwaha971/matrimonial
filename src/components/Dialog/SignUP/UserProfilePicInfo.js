@@ -30,7 +30,12 @@ function UserProfilePicInfo(props) {
           {({ values, setFieldValue }) => (
             <Form>
               <Typography className="labelStyle">
-                <span style={{ color: "red" }}>*</span>Upload Profile Picture:
+                <span style={{ color: "red" }}>*</span>Upload Profile Picture{" "}
+                <br />
+                <span style={{ fontSize: "10px" }}>
+                  *(Supported Format: .jpg/.jpeg/.png; Max Size: 3MB)
+                </span>
+                :
               </Typography>
               <input
                 style={{ marginTop: "40px" }}

@@ -31,6 +31,11 @@ function UserEducationInfo(props) {
             <Form>
               <Typography className="labelStyle">
                 <span style={{ color: "red" }}>*</span>College/University Name:
+                <br />
+                <span style={{ fontSize: "10px" }}>
+                  *(Supported Format: .jpg/.jpeg/.png; Max Size: 3MB)
+                </span>
+                :
               </Typography>
               <br />
               <Field
