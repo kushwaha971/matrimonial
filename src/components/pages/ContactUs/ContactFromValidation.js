@@ -3,14 +3,15 @@ import React from "react";
 import * as yup from "yup";
 
 export const validationSchem = yup.object({
-  firstName: yup.string().required("Please enter your First name"),
-  lastName: yup.string().required("Please enter your Last name!"),
-  gender: yup.string().required("Required!"),
-  DOB: yup.string().required("Required!"),
-
+  name: yup.string().required("Please enter your name"),
+  phone: yup
+    .string()
+    .required("Please enter your phone number")
+    .min(10, "Please enter valid mobile number")
+    .max(10, "Please enter valid mobile number"),
 });
 
-function UserPersoanInfoValidation({ name }) {
+function ContactFromValidation({ name }) {
   return (
     <div
       style={{
@@ -26,4 +27,4 @@ function UserPersoanInfoValidation({ name }) {
   );
 }
 
-export default UserPersoanInfoValidation;
+export default ContactFromValidation;

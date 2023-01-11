@@ -7,7 +7,7 @@ export const validationSchem = yup.object({
   idCard: yup
     .mixed()
     .nullable()
-    .required("Required!")
+    .required("Please upload your valid collage id")
     .test(
       "FILE_SIZE",
       "Size should be less than 3MB. ",

@@ -19,6 +19,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import { Link } from "react-scroll";
+import { userContext } from "../../context/Context";
 // const pages = ["Home", "About us", "Success Stories", "Contact us", "Login"];
 const IconStyle = {
   verticalAlign: "middle",
@@ -60,6 +61,7 @@ const pages = [
 
 const DrawerComp = (props) => {
   const [opendDrawer, setOpenDrawer] = React.useState(false);
+  const contextData = React.useContext(userContext);
 
   return (
     <React.Fragment>
@@ -69,7 +71,7 @@ const DrawerComp = (props) => {
         onClose={() => setOpenDrawer(false)}
         transitionDuration={500}
         PaperProps={{
-          sx: { width: "100%" },
+          sx: { width: "100%",borderRadius: '10px' },
         }}
       >
         <Box
@@ -113,6 +115,9 @@ const DrawerComp = (props) => {
                   setOpenDrawer(!opendDrawer);
                   if (page.id === 5) {
                     props.handleLogin();
+                  }
+                  if(page.id===4){
+                  contextData.handleContactDrawer()
                   }
                 }}
               >

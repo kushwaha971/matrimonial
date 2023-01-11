@@ -6,7 +6,7 @@ export const validationSchem = yup.object({
   profilePicture: yup
     .mixed()
     .nullable()
-    .required("Required!")
+    .required("Please upload your profile picture")
     .test(
       "FILE_SIZE",
       "Size should be less than 3MB. ",

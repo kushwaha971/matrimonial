@@ -3,7 +3,7 @@ import React from "react";
 import * as yup from "yup";
 
 export const validationSchem = yup.object({
-  address: yup.string().required("Required!"),
+  address: yup.string().required("Please enter your address"),
   zipCode: yup.string().required("Required!"),
   city: yup.string().required("Required!"),
   state: yup.string().required("Required!"),

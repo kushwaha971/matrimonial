@@ -17,6 +17,7 @@ import logo from "../../images/BirdLogo.png";
 import { userContext } from "../../context/Context";
 import DrawerComp from "./DrawerComp";
 import { Link } from "react-scroll";
+import Contact from "../ContactUs/Contact";
 
 export const HeaderStyle = styled(Box)(({ theme }) => ({
   ".logintabStyle": {
@@ -62,9 +63,6 @@ export const HeaderStyle = styled(Box)(({ theme }) => ({
 function Header() {
   const contextData = React.useContext(userContext);
   const [value, setValue] = React.useState("home");
-  // const tabIndxHandle =(e,newValue) => {
-  //     setValue(newValue);
-  // }
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -72,6 +70,7 @@ function Header() {
     <HeaderStyle>
       {contextData.openLoginPage && <Login />}
       {contextData.openSignUp && <SignUp />}
+      {contextData.contactDrawer && <Contact/>}
 
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
@@ -131,12 +130,9 @@ function Header() {
                   />
 
                   <Tab
+                    onClick={contextData.handleContactDrawer}
                     value="contact"
-                    label={
-                      <Link spy={true} smooth={true}>
-                        <div style={{ color: "white" }}>Contact us</div>{" "}
-                      </Link>
-                    }
+                    label={<div style={{ color: "white" }}>Contact us</div>}
                     className="tabStyle"
                   />
 
